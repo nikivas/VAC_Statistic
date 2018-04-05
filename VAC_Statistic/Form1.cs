@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using iTextSharp.text.pdf;
-using iTextSharp.text.pdf.parser;
+using VAC_Statistic.Core;
 
 namespace VAC_Statistic
 {
@@ -27,6 +26,18 @@ namespace VAC_Statistic
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
+            readPDF();
+
+            TextAnalyser analyser = new TextAnalyser(richTextBox1.Text);
+            IEnumerable<Article> articles = analyser.Parse();
+
+            
+            
+        }
+
+
+        private void readPDF()
+        {
             OpenFileDialog opener = new OpenFileDialog();
             opener.ShowDialog();
 
@@ -34,14 +45,13 @@ namespace VAC_Statistic
                 return;
 
             var fileNamesCollection = opener.FileNames;
-            
+
             foreach (var el in fileNamesCollection)
             {
                 PDFReader reader = new PDFReader();
                 reader.FileName = el;
                 richTextBox1.Text += reader.Parse() + "\n\r";
             }
-            
         }
     }
 }

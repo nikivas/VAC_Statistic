@@ -40,6 +40,7 @@ namespace VAC_Statistic
 
                     currentText = Encoding.UTF8.GetString(ASCIIEncoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(currentText)));
                     text.Append(currentText);
+                    text.Append("\r\n");
                 }
                 pdfReader.Close();
             }
