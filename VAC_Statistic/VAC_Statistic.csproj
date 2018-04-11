@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analyser.cs" />
     <Compile Include="Core\Article.cs" />
     <Compile Include="Core\Speciality.cs" />
     <Compile Include="Core\TextAnalyser.cs" />

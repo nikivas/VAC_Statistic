@@ -14,6 +14,8 @@ namespace VAC_Statistic
 {
     public partial class Form1 : Form
     {
+        IEnumerable<Article> articles;
+
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace VAC_Statistic
             readPDF();
 
             TextAnalyser analyser = new TextAnalyser(richTextBox1.Text);
-            IEnumerable<Article> articles = analyser.Parse();
+            articles = analyser.Parse();
 
             
             
@@ -52,6 +54,71 @@ namespace VAC_Statistic
                 reader.FileName = el;
                 richTextBox1.Text += reader.Parse() + "\n\r";
             }
+        }
+
+        private void buttonScienceDistribution_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getBranchOfScienceDistribution(articles));
+        }
+
+        private void buttonOneDirection_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getBranchOfScienceDistribution_OneDirection(articles));
+        }
+
+        private void buttonDirectionCount_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getDirectionsCount(articles));
+        }
+
+        private void buttonDirectionPairCount_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = new Statistic().getDirectionsPairCount(articles).ToString();
+        }
+
+        private void buttonPairs_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getDirectionPairs(articles));
+        }
+
+        private void buttonDirectionThird_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getDirectionThirds(articles));
+        }
+
+        private void buttonGNSDistribution_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDistribution(articles));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSCount(articles));
+        }
+
+        private void buttonGNSWithoutDirections_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDistributionWithouDirections(articles));
+        }
+
+        private void buttonGNSPairsWithDirections_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionPairs(articles));
+        }
+
+        private void buttonGNSWithDirection_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionThirds(articles));
+        }
+
+        private void buttonGNSDirectionFour_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionNumbers(articles, 4));
+        }
+
+        private void buttonGNSDirectionFifth_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionNumbers(articles, 5));
         }
     }
 }
