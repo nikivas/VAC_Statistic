@@ -103,12 +103,12 @@ namespace VAC_Statistic
 
         private void buttonGNSPairsWithDirections_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionPairs(articles));
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionNumbers(articles,2));
         }
 
         private void buttonGNSWithDirection_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionThirds(articles));
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionNumbers(articles,3));
         }
 
         private void buttonGNSDirectionFour_Click(object sender, EventArgs e)

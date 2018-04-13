@@ -283,66 +283,7 @@ namespace VAC_Statistic
         }
 
 
-
-        public IEnumerable<KeyValuePair<string, int>> getGNSDirectionPairs(IEnumerable<Article> articles)
-        {
-
-            Dictionary<string, int> result = new Dictionary<string, int>();
-
-
-            HashSet<string> resultSet = new HashSet<string>();
-            foreach (var el in articles)
-            {
-                var set = new HashSet<string>();
-                foreach (var spec in el.scientificSpecialities)
-                {
-                    set.Add(spec.Code);
-                }
-                if (set.Count != 2)
-                    continue;
-
-                var orderedList = set.ToList().OrderBy(x => x);
-
-                var bufKey = String.Join(" И ", orderedList); //orderedList.First() + ".00.00 + orderedList.Last() + ".00.00";
-                if (!result.Keys.ToList().Contains(bufKey))
-                    result.Add(bufKey, 1);
-                else
-                    result[bufKey]++;
-
-            }
-            return result.ToList().OrderByDescending(x => x.Value);
-        }
-
-        public IEnumerable<KeyValuePair<string, int>> getGNSDirectionThirds(IEnumerable<Article> articles)
-        {
-
-            Dictionary<string, int> result = new Dictionary<string, int>();
-
-
-            HashSet<string> resultSet = new HashSet<string>();
-            foreach (var el in articles)
-            {
-                var set = new HashSet<string>();
-                foreach (var spec in el.scientificSpecialities)
-                {
-                    set.Add(spec.Code);
-                }
-
-                if (set.Count != 3)
-                    continue;
-
-                var orderedList = set.ToList().OrderByDescending(x => x).ToList();
-
-                var bufKey = String.Join(" И ",orderedList); 
-                if (!result.Keys.ToList().Contains(bufKey))
-                    result.Add(bufKey, 1);
-                else
-                    result[bufKey]++;
-
-            }
-            return result.ToList().OrderByDescending(x => x.Value);
-        }
-
+        
 
         public IEnumerable<KeyValuePair<string, int>> getGNSDirectionNumbers(IEnumerable<Article> articles, int pairCount = 1)
         {
@@ -408,19 +349,19 @@ namespace VAC_Statistic
 
 
 
-            Dictionary<string, KeyValuePair<int,int>> res = new Dictionary<string, KeyValuePair<int, int>>();
-            foreach (var el in ls)
-            {
-                foreach (var el2 in el)
-                {
-                    if (res.Keys.ToList().Contains(el2.Key))
-                        res[el2.Key]++;
-                    else
-                        res.Add(el2.Key, new KeyValuePair<int, int>(1,el2.Value);
+            //Dictionary<string, KeyValuePair<int,int>> res = new Dictionary<string, KeyValuePair<int, int>>();
+            //foreach (var el in ls)
+            //{
+            //    foreach (var el2 in el)
+            //    {
+            //        if (res.Keys.ToList().Contains(el2.Key))
+            //            res[el2.Key]++;
+            //        else
+            //            res.Add(el2.Key, new KeyValuePair<int, int>(1,el2.Value);
 
 
-                }
-            }
+            //    }
+            //}
 
 
             return result.ToList().OrderByDescending(x => x.Value);
