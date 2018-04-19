@@ -103,22 +103,47 @@ namespace VAC_Statistic
 
         private void buttonGNSPairsWithDirections_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionNumbers(articles,2));
+            var lnk = new Statistic().getGNSDirectionNumbers(articles, 2);
+            richTextBox1.Text = Statistic.beautifulResult(lnk);
         }
+
 
         private void buttonGNSWithDirection_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionNumbers(articles,3));
+            var lnk = new Statistic().getGNSDirectionNumbers(articles, 3);
+            var count3 = lnk.Where(x => x.Value == 3).Count();
+            var count2 = lnk.Where(x => x.Value == 2).Count();
+            var count1 = lnk.Where(x => x.Value == 1).Count();
+            richTextBox1.Text = Statistic.beautifulResult(lnk);
         }
 
         private void buttonGNSDirectionFour_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionNumbers(articles, 4));
+            var lnk = new Statistic().getGNSDirectionNumbers(articles, 4);
+            var count3 = lnk.Where(x => x.Value == 3).Count();
+            var count2 = lnk.Where(x => x.Value == 2).Count();
+            var count1 = lnk.Where(x => x.Value == 1).Count();
+            richTextBox1.Text = Statistic.beautifulResult(lnk);
         }
 
         private void buttonGNSDirectionFifth_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getGNSDirectionNumbers(articles, 5));
+            var lnk = new Statistic().getGNSDirectionNumbers(articles, 5);
+            var count3 = lnk.Where(x => x.Value == 3).Count();
+            var count2 = lnk.Where(x => x.Value == 2).Count();
+            var count1 = lnk.Where(x => x.Value == 1).Count();
+            richTextBox1.Text = Statistic.beautifulResult(lnk);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Statistic.beautifulResult(new Statistic().getObjectsDirection(articles));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var lnk = new Statistic().Plotnost(articles);
+            richTextBox1.Text = Statistic.beautifulResult(lnk);
         }
     }
 }

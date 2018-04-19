@@ -197,6 +197,30 @@ namespace VAC_Statistic
         }
 
 
+        public IEnumerable<KeyValuePair<string, int>> getObjectsDirection(IEnumerable<Article> articles)
+        {
+
+            Dictionary<string, int> result = new Dictionary<string, int>();
+
+            //result.Add("1", 0);
+            //result.Add("2", 0);
+            //result.Add("3", 0);
+            //result.Add("4", 0);
+            //result.Add("5", 0);
+            //result.Add("6", 0);
+
+            //foreach (var el in articles)
+            //{
+            //    result[el.scientificSpecialities.Count.ToString()]++;
+            //}
+            var lnk = articles.Where(x => x.scientificSpecialities.Count == 1);
+            foreach (var el in lnk)
+            {
+                result.Add(el.articleName, el.scientificSpecialities.Count);
+            }
+
+            return result.ToList().OrderByDescending(x => x.Value);
+        }
 
         public IEnumerable<KeyValuePair<string, int>> getGNSDistribution(IEnumerable<Article> articles)
         {
@@ -316,10 +340,37 @@ namespace VAC_Statistic
 
 
 
+        public IEnumerable<KeyValuePair<string, int>> Plotnost(IEnumerable<Article> articles)
+        {
+
+            Dictionary<string, int> result = new Dictionary<string, int>();
+
+            foreach (var el in articles)
+            {
+                
+
+                var setNJ = new HashSet<string>();
+                var setGNS = new HashSet<string>();
+                foreach (var spec in el.scientificSpecialities)
+                {
+                    setGNS.Add(spec.Code);
+                    setNJ.Add(spec.FirstCode.ToString()+"00.00");
+                }
+
+                var key = (setNJ.Count / (double)setGNS.Count).ToString();
+                if (!result.Keys.Contains(key))
+                    result.Add(key, 1);
+                else
+                    result[key]++;
+
+            }
+            return result.ToList().OrderBy(o=>o.Key);
+        }
 
 
-        // плотность чего то там TODO: доделать
-        public IEnumerable<KeyValuePair<string, double>> getGNSOnDirectionDistribution(IEnumerable<Article> articles)
+
+            // плотность чего то там TODO: доделать
+            public IEnumerable<KeyValuePair<string, double>> getGNSOnDirectionDistribution(IEnumerable<Article> articles)
         {
 
             Dictionary<string, double> result = new Dictionary<string, double>();
