@@ -46,6 +46,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.buttonGNS_NJ_ALL = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -225,11 +226,22 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // buttonGNS_NJ_ALL
+            // 
+            this.buttonGNS_NJ_ALL.Location = new System.Drawing.Point(73, 444);
+            this.buttonGNS_NJ_ALL.Name = "buttonGNS_NJ_ALL";
+            this.buttonGNS_NJ_ALL.Size = new System.Drawing.Size(126, 51);
+            this.buttonGNS_NJ_ALL.TabIndex = 18;
+            this.buttonGNS_NJ_ALL.Text = "тольго гнс/только нж/1+2";
+            this.buttonGNS_NJ_ALL.UseVisualStyleBackColor = true;
+            this.buttonGNS_NJ_ALL.Click += new System.EventHandler(this.buttonGNS_NJ_ALL_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 498);
+            this.Controls.Add(this.buttonGNS_NJ_ALL);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -274,6 +286,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonGNS_NJ_ALL;
     }
 }
 

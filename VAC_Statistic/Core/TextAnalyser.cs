@@ -11,9 +11,10 @@ namespace VAC_Statistic.Core
         String text;
         Dictionary<String, Article> articles = new Dictionary<string, Article>();
 
-        private int[] VAC_2018 = new int[] {208, 458, 462, 543, 714,
+        private int[] VAC_2018 = new int[] {208, 348, 458, 462, 543, 714,
                                             805, 828, 1027,1221,1231,
                                             1237,1264,1333,1334,1352,
+                                            1357, 1360,
                                             1377,1427,1462,1470,1640,
                                             1962,2043,2046,2178};
 

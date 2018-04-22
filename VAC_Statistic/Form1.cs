@@ -104,6 +104,10 @@ namespace VAC_Statistic
         private void buttonGNSPairsWithDirections_Click(object sender, EventArgs e)
         {
             var lnk = new Statistic().getGNSDirectionNumbers(articles, 2);
+            var count4 = lnk.Where(x => x.Value == 4).Count();
+            var count3 = lnk.Where(x => x.Value == 3).Count();
+            var count2 = lnk.Where(x => x.Value == 2).Count();
+            var count1 = lnk.Where(x => x.Value == 1).Count();
             richTextBox1.Text = Statistic.beautifulResult(lnk);
         }
 
@@ -120,6 +124,7 @@ namespace VAC_Statistic
         private void buttonGNSDirectionFour_Click(object sender, EventArgs e)
         {
             var lnk = new Statistic().getGNSDirectionNumbers(articles, 4);
+            var count4 = lnk.Where(x => x.Value == 4).Count();
             var count3 = lnk.Where(x => x.Value == 3).Count();
             var count2 = lnk.Where(x => x.Value == 2).Count();
             var count1 = lnk.Where(x => x.Value == 1).Count();
@@ -143,6 +148,12 @@ namespace VAC_Statistic
         private void button4_Click(object sender, EventArgs e)
         {
             var lnk = new Statistic().Plotnost(articles);
+            richTextBox1.Text = Statistic.beautifulResult(lnk);
+        }
+
+        private void buttonGNS_NJ_ALL_Click(object sender, EventArgs e)
+        {
+            var lnk = new Statistic().getGNS_NJ_ALL(articles);
             richTextBox1.Text = Statistic.beautifulResult(lnk);
         }
     }

@@ -418,6 +418,39 @@ namespace VAC_Statistic
             return result.ToList().OrderByDescending(x => x.Value);
         }
 
+        public IEnumerable<KeyValuePair<string, int>> getGNS_NJ_ALL(IEnumerable<Article> articles)
+        {
+            
+
+            Dictionary<string, int> result = new Dictionary<string, int>();
+
+            result.Add("GNS", 0);
+            result.Add("NJ", 0);
+            result.Add("ALL", 0);
+
+            foreach (var el in articles)
+            {
+                bool isNJ = false;
+                bool isGNS = false;
+                foreach (var spec in el.scientificSpecialities)
+                {
+                    if (spec.SecondCode != 0)
+                        isGNS = true;
+                    else
+                        isNJ = true;
+                }
+
+                if (isNJ && isGNS)
+                    result["ALL"]++;
+                if (isNJ && !isGNS)
+                    result["NJ"]++;
+                if (isGNS && !isNJ)
+                    result["GNS"]++;
+            }
+
+
+            return result.ToList().OrderByDescending(x => x.Value);
+        }
 
 
 
