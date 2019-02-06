@@ -11,3 +11,16 @@ C:\учеба\C# MVC\VAC_Brumshtein\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_St
 C:\учеба\C# MVC\VAC_Brumshtein\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.csproj.CopyComplete
 C:\учеба\C# MVC\VAC_Brumshtein\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.exe
 C:\учеба\C# MVC\VAC_Brumshtein\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.pdb
+C:\учеба\VAC_Statistic\VAC_Statistic\bin\Debug\VAC_Statistic.exe.config
+C:\учеба\VAC_Statistic\VAC_Statistic\bin\Debug\VAC_Statistic.exe
+C:\учеба\VAC_Statistic\VAC_Statistic\bin\Debug\VAC_Statistic.pdb
+C:\учеба\VAC_Statistic\VAC_Statistic\bin\Debug\itextsharp.dll
+C:\учеба\VAC_Statistic\VAC_Statistic\bin\Debug\itextsharp.xml
+C:\учеба\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.csprojAssemblyReference.cache
+C:\учеба\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.Form1.resources
+C:\учеба\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.Properties.Resources.resources
+C:\учеба\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.csproj.GenerateResource.cache
+C:\учеба\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.csproj.CoreCompileInputs.cache
+C:\учеба\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.csproj.CopyComplete
+C:\учеба\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.exe
+C:\учеба\VAC_Statistic\VAC_Statistic\obj\Debug\VAC_Statistic.pdb

@@ -37,7 +37,6 @@ namespace VAC_Statistic
                 {
                     ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
                     string currentText = PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
-
                     currentText = Encoding.UTF8.GetString(ASCIIEncoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(currentText)));
                     text.Append(currentText);
                     text.Append("\r\n");
