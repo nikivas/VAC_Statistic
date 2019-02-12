@@ -10,6 +10,7 @@ namespace VAC_Statistic.Core
     class Article
     {
         public string articleName;
+        public string _Name = "";
         public string ISSN;
         public HashSet<Speciality> scientificSpecialities = new HashSet<Speciality>();
         public int dateCounterHelper = 0;
@@ -22,6 +23,11 @@ namespace VAC_Statistic.Core
             else if(dateCounterHelper == 1)
                 _bufferedSpecs.Add(spec);
 
+        }
+
+        public void addName(string name)
+        {
+            this._Name += name;
         }
 
         public void finallyzeSpec()

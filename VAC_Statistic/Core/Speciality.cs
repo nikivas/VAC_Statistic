@@ -8,11 +8,38 @@ namespace VAC_Statistic.Core
 {
     class Speciality
     {
-        public string Name;
+        public string Name = "";
 
         public int FirstCode { get; private set; }
         public int SecondCode { get; private set; }
         public int ThirdCode { get; private set; }
+
+        private static string _technical = @"(\(технические науки\))";
+        private static string _physical = @"(\(физико-математические науки\))";
+
+        public bool IsTechnical { get
+            {
+                return IsTechnicalOnly || IsPhysicalOnly;
+            } }
+
+        public bool IsTechnicalOnly
+        {
+            get
+            {
+                return Regex.IsMatch(this.Name, Speciality._technical);
+            }
+        }
+
+
+        public bool IsPhysicalOnly
+        {
+            get
+            {
+                return Regex.IsMatch(this.Name, Speciality._physical);
+            }
+        }
+
+
 
         public const string REGEX_PATTERN = @"^([0-9]*\.){2}[0-9]{2}$";
         public const string REGEX_PATTERN_IN_STRING = @"([0-9]*\.){2}[0-9]{2}[^0-9]";
@@ -41,6 +68,7 @@ namespace VAC_Statistic.Core
 
         private void parseCode(string code)
         {
+            Name += code;
             Regex re = new Regex(REGEX_GET_NUMBERS);
 
             var result = re.Matches(code);

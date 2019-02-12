@@ -156,5 +156,96 @@ namespace VAC_Statistic
             var lnk = new Statistic().getGNS_NJ_ALL(articles);
             richTextBox1.Text = Statistic.beautifulResult(lnk);
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().getWitoutTechnicalSpecs(articles);
+            richTextBox1.Text = Statistic.beautifulResult( link );
+        }
+
+        private void buttonOnlyTN_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().getWithTechnicalSpecsOnly(articles);
+
+            richTextBox1.Text = Statistic.beautifulResult(link);
+        }
+
+        private void buttonTnAndNotTn_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().getWithTechnicalAndNotTechnicalSpecs(articles);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().getTnWithoutPhysic(articles);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().getTnWithPhysic(articles);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var techAndPhys = new Statistic().getNS_TN_FMI(articles);
+            richTextBox1.Text = Statistic.beautifulResult(techAndPhys);
+        }
+
+        private void buttonNS_Count_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().getNSCount(articles);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+        }
+
+        private void buttonTNDistrib_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().getNSTechDistribution(articles);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().getNSTechDistribForEach(articles);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().listFrequencySpecs(articles, firstCode: 5, secondCode: 2);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+            richTextBox1.Text = richTextBox1.Text + "\r\n" + (new Statistic().difValue(link)).ToString();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().listFrequencySpecs(articles, firstCode: 5, secondCode: 11);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+            richTextBox1.Text = richTextBox1.Text + "\r\n" + (new Statistic().difValue(link)).ToString();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().listFrequencySpecs(articles, firstCode: 5, secondCode: 13);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+            richTextBox1.Text = richTextBox1.Text + "\r\n" + (new Statistic().difValue(link)).ToString();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().listFrequencySpecs(articles, firstCode: 5, secondCode: 22);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+            richTextBox1.Text = richTextBox1.Text + "\r\n" + (new Statistic().difValue(link)).ToString();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            var link = new Statistic().listFrequencySpecs(articles, firstCode: 5, secondCode: 23);
+            richTextBox1.Text = Statistic.beautifulResult(link);
+            richTextBox1.Text = richTextBox1.Text + "\r\n" + (new Statistic().difValue(link)).ToString();
+        }
     }
 }

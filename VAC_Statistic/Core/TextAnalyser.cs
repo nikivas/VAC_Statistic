@@ -29,6 +29,7 @@ namespace VAC_Statistic.Core
             string[] collection = text.Split(new char[] { '\r','\n'}, StringSplitOptions.RemoveEmptyEntries);
             int current_index = 1;
             bool flagNextStep = false;
+            var spec = new Speciality("00.00.00");
             foreach (var el in collection)
             {
                 
@@ -46,6 +47,7 @@ namespace VAC_Statistic.Core
                         articles[_article_index].finallyzeSpec();
                     articles.Add(current_index_s, new Article());
                     articles[current_index_s].articleName = current_index.ToString();
+                    
                     current_index++;
                 }
                 string article_index = (current_index - 1).ToString();
@@ -53,10 +55,19 @@ namespace VAC_Statistic.Core
                     continue;
                 
                 var specs = Regex.Matches(el, Speciality.REGEX_PATTERN_IN_STRING);
-                    
+
+                if (articles.Keys.Contains(current_index_s))
+                {
+                    articles[current_index_s].addName(el);
+                }
+
+                if (specs.Count < 1)
+                    spec.Name += el;
                 foreach (Match match in specs)
                 {
-                    articles[article_index].addSpeciality(new Speciality(match.Value.Substring(0,match.Value.Length-1)));
+                    spec = new Speciality(match.Value.Substring(0, match.Value.Length - 1));
+                    spec.Name += el;
+                    articles[article_index].addSpeciality(spec);
                 }
                 if (Regex.IsMatch(el, @"(^|; )(c|с) ([0-9]{2}\.){2}[0-9]{4}"))
                     articles[article_index].dateCounterHelper += 1;
@@ -66,7 +77,7 @@ namespace VAC_Statistic.Core
             }
 
             return articles.Values
-                           .Where(x=>!VAC_2018.Contains(int.Parse(x.articleName)))
+                           //.Where(x=>!VAC_2018.Contains(int.Parse(x.articleName)))
                            .ToList()
                            .Where(x=>x.scientificSpecialities.Count > 0); 
 
